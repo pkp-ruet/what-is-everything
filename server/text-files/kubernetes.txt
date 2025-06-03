@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>What is Kubernetes?</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans leading-relaxed">
+  <header class="bg-blue-600 text-white p-6 shadow">
+    <div class="max-w-4xl mx-auto">
+      <h1 class="text-3xl font-bold">What is Kubernetes?</h1>
+      <p class="text-sm mt-1">By [Your Name] • June 3, 2025</p>
+    </div>
+  </header>
+
+  <main class="max-w-4xl mx-auto p-6">
+    <section class="mb-6">
+      <h2 class="text-2xl font-semibold text-gray-900 mb-2">🧠 Introduction</h2>
+      <p>
+        In today’s cloud-native world, managing applications across multiple servers can quickly become complex.
+        Enter <strong>Kubernetes</strong> — an open-source container orchestration platform that automates deployment,
+        scaling, and management of containerized applications.
+      </p>
+    </section>
+
+    <section class="mb-6">
+      <h2 class="text-2xl font-semibold text-gray-900 mb-2">🚢 What are Containers?</h2>
+      <p>
+        Before diving into Kubernetes, let’s briefly understand <strong>containers</strong>. Containers are lightweight,
+        portable units that package code, dependencies, and runtime together — ensuring consistency across environments
+        from development to production.
+      </p>
+    </section>
+
+    <section class="mb-6">
+      <h2 class="text-2xl font-semibold text-gray-900 mb-2">🔧 So, What is Kubernetes?</h2>
+      <p>
+        Kubernetes (often abbreviated as <strong>K8s</strong>) is a platform developed by Google, now maintained by the
+        <strong>Cloud Native Computing Foundation (CNCF)</strong>. It acts like a control system for your containerized applications.
+      </p>
+      <p class="mt-2">
+        Kubernetes handles:
+      </p>
+      <ul class="list-disc list-inside ml-4 mt-2 text-gray-700">
+        <li><strong>Deployment</strong> of applications</li>
+        <li><strong>Scaling</strong> apps up or down</li>
+        <li><strong>Load balancing</strong></li>
+        <li><strong>Self-healing</strong> of failed containers</li>
+      </ul>
+    </section>
+
+    <section class="mb-6">
+      <h2 class="text-2xl font-semibold text-gray-900 mb-2">⚙️ Core Components</h2>
+      <p>
+        Kubernetes includes several key components:
+      </p>
+      <ul class="list-disc list-inside ml-4 mt-2 text-gray-700">
+        <li><strong>Pod:</strong> The smallest deployable unit that can hold one or more containers.</li>
+        <li><strong>Node:</strong> A physical or virtual machine running pods.</li>
+        <li><strong>Cluster:</strong> A group of nodes managed by Kubernetes.</li>
+        <li><strong>Control Plane:</strong> Manages the state and configuration of the cluster.</li>
+      </ul>
+    </section>
+
+    <section class="mb-6">
+      <h2 class="text-2xl font-semibold text-gray-900 mb-2">🌐 Why Use Kubernetes?</h2>
+      <p>
+        Kubernetes has become the industry standard because it simplifies the deployment and scaling of applications.
+        It supports all major cloud providers, hybrid environments, and even on-premise setups.
+      </p>
+    </section>
+
+    <section class="mb-6">
+      <h2 class="text-2xl font-semibold text-gray-900 mb-2">🚀 Conclusion</h2>
+      <p>
+        Kubernetes empowers developers to build and manage modern applications with speed, flexibility, and confidence.
+        As companies scale their infrastructure, Kubernetes becomes a vital part of their DevOps toolkit.
+      </p>
+    </section>
+  </main>
+
+  <footer class="bg-gray-200 text-center text-sm text-gray-700 p-4">
+    &copy; 2025 [Your Name] — All rights reserved.
+  </footer>
+</body>
+</html>

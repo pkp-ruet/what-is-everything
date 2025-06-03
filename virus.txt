@@ -1,0 +1,29 @@
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virus</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 text-gray-600 font-sans antialiased">
+    <header class="max-w-7xl mx-auto p-4 bg-white shadow-md rounded-lg my-8">
+        <h1 class="text-3xl font-bold mb-2">The Invisible Enemy: Understanding Viruses</h1>
+    </header>
+    <main class="container max-w-7xl mx-auto p-4 lg:p-6 xl:p-8 mt-8">
+        <article>
+            <p>Viruses are tiny, infectious agents that can cause illness in humans and animals. They're so small you need specialized equipment to see them.</p>
+            <img class="mx-auto mb-4 w-full lg:w-1/2 xl:w-3/5" src="virus.jpg" alt="Virus">
+        </article>
+        <section class="bg-gray-200 rounded-lg p-4 mt-8 lg:mt-12 xl:mt-16">
+            <h2 class="text-xl font-bold mb-2">Types of Viruses</h2>
+            <ul>
+                <li>Computer viruses: These are malicious programs that can damage or take control of computer systems.</li>
+                <li>Biological viruses: These are infectious agents that can cause illness in humans and animals.</li>
+            </ul>
+        </section>
+    </main>
+</body>
+</html>
+```
