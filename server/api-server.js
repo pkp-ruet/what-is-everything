@@ -7,7 +7,7 @@ const PORT = process.env.PORT || 3000;
 
 // MongoDB configuration
 const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost:27017";
-const DATABASE_NAME = process.env.DATABASE_NAME || "your_database_name";
+const DATABASE_NAME = process.env.DATABASE_NAME || "what-is-everything";
 const COLLECTION_NAME = "blogs";
 
 // Middleware

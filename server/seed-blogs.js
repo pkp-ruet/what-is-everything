@@ -45,11 +45,21 @@ async function readTextFiles(folderPath) {
       const content = await fs.readFile(filePath, "utf8");
 
       // Remove file extension from title
-      const title = path.parse(file).name;
+      // Extract category and title from filename
+      const baseName = path.parse(file).name;
+      const separatorIndex = baseName.indexOf("-");
+      if (separatorIndex === -1) {
+        console.warn(`⚠️  Skipping file "${file}" – no category prefix found`);
+        continue;
+      }
+
+      const category = baseName.slice(0, separatorIndex).trim();
+      const title = baseName.slice(separatorIndex + 1).trim();
 
       blogs.push({
-        title: title,
+        title,
         content: content.trim(),
+        category,
         createdAt: new Date(),
       });
 

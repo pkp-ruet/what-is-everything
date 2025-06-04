@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>What is Probability? The Math Behind Maybe</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f0f9ff;
+      color: #1e293b;
+      margin: 0;
+      padding: 0 20px;
+      line-height: 1.7;
+    }
+    .container {
+      max-width: 720px;
+      margin: 40px auto;
+      background: #ffffff;
+      padding: 30px 40px;
+      border-radius: 12px;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.08);
+    }
+    h1 {
+      color: #2563eb;
+      text-align: center;
+      margin-bottom: 25px;
+      font-size: 2.3rem;
+      font-weight: 700;
+    }
+    p {
+      font-size: 1.1rem;
+      margin-bottom: 1.2em;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 0.6em;
+    }
+    .highlight {
+      color: #dc2626;
+      font-weight: 600;
+    }
+    footer {
+      margin-top: 40px;
+      text-align: center;
+      font-style: italic;
+      color: #6b7280;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>What is Probability? The Math Behind Maybe</h1>
+
+    <p>Ever flipped a coin and guessed heads? That tiny moment — of chance, choice, and uncertainty — is all about <span class="highlight">probability</span>.</p>
+
+    <p><strong>Probability</strong> is the branch of math that helps us understand the <em>likelihood</em> of something happening. It doesn’t predict the future — it tells us how likely different outcomes are.</p>
+
+    <p>Here’s the basic idea:</p>
+    <ul>
+      <li>If something is <strong>certain</strong>, its probability is <strong>1</strong> (or 100%).</li>
+      <li>If something is <strong>impossible</strong>, its probability is <strong>0</strong>.</li>
+      <li>Most things in life? Somewhere in between.</li>
+    </ul>
+
+    <p>Let’s take a classic example:<br>
+    🎲 Roll a fair 6-sided die. What’s the chance you get a 3?<br>
+    There’s only <strong>one 3</strong>, and <strong>six</strong> total possibilities.<br>
+    So, <strong>Probability = 1 / 6 ≈ 16.7%</strong></p>
+
+    <p>Simple! But probability isn’t just for games — it powers weather forecasts, medical tests, AI, finance, and even your favorite streaming suggestions.</p>
+
+    <p>Probability helps us <strong>make better decisions</strong> in an uncertain world. It’s not magic — it’s just math for managing the unknown.</p>
+
+    <footer>— Explained for curious minds who like to wonder, “What are the odds?” 🎲</footer>
+  </div>
+</body>
+</html>
