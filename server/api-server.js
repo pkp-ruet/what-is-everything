@@ -47,12 +47,9 @@ app.get("/api/blogs", async (req, res) => {
   try {
     const collection = db.collection(COLLECTION_NAME);
 
-    // Parse query parameters
-    const page = Math.max(1, parseInt(req.query.page) || 1);
-    const limit = Math.min(100, Math.max(1, parseInt(req.query.limit) || 10));
+    // Parse query parameters for sorting only
     const sortBy = req.query.sortBy || "createdAt";
     const sortOrder = req.query.sortOrder === "asc" ? 1 : -1;
-    const skip = (page - 1) * limit;
 
     // Validate sortBy field
     const allowedSortFields = ["title", "createdAt", "_id"];
@@ -60,33 +57,15 @@ app.get("/api/blogs", async (req, res) => {
       ? sortBy
       : "createdAt";
 
-    // Get total count for pagination info
-    const totalBlogs = await collection.countDocuments();
-
-    // Fetch blogs with pagination and sorting
+    // Fetch all blogs sorted
     const blogs = await collection
       .find({})
       .sort({ [actualSortBy]: sortOrder })
-      .skip(skip)
-      .limit(limit)
       .toArray();
-
-    // Calculate pagination info
-    const totalPages = Math.ceil(totalBlogs / limit);
-    const hasNextPage = page < totalPages;
-    const hasPrevPage = page > 1;
 
     res.json({
       success: true,
       data: blogs,
-      pagination: {
-        currentPage: page,
-        totalPages,
-        totalBlogs,
-        blogsPerPage: limit,
-        hasNextPage,
-        hasPrevPage,
-      },
     });
   } catch (error) {
     console.error("Error fetching blogs:", error);

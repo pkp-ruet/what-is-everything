@@ -1,0 +1,248 @@
+/* CSS Variables for a more maintainable theme */
+:root {
+  /* Soothing Palette based on Sage Green */
+  --primary-bg: #fdfdfc; /* Very light, almost white, subtle cream background */
+  --panel-bg: #ffffff; /* Pure white for panels, slightly brighter than primary-bg */
+
+  --accent-color: #a8c2b3; /* Muted Sage Green - for interactive elements, hover */
+  --dark-accent-color: #6d9384; /* Deep Sage Green - for headings, active states */
+  --light-accent-tint: #e9f0ec; /* Very light tint of sage - for list item backgrounds */
+
+  --text-dark: #3a3a3a; /* Dark Charcoal Gray - for main body text */
+  --text-medium: #555555; /* Medium Gray - for general text */
+  --text-light: #909090; /* Lighter Gray - for placeholder/secondary info */
+
+  --border-light: #e0e0e0; /* Light Gray - for subtle borders */
+  --shadow-subtle: rgba(0, 0, 0, 0.04); /* Very subtle shadow for depth */
+  --shadow-medium: rgba(0, 0, 0, 0.08); /* Medium shadow for hover/active */
+  --shadow-strong: rgba(0, 0, 0, 0.12); /* Stronger shadow for active */
+
+  --font-heading: "Poppins", sans-serif;
+  --font-body: "Open Sans", sans-serif;
+}
+
+/* Global Reset/Base Styles */
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+/* Main Container with flex */
+.home-container {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  font-family: var(--font-body);
+  background: var(--primary-bg);
+  color: var(--text-medium);
+}
+
+/* When a blog is selected, show detail with a larger portion */
+.home-container.detail-open .blog-list {
+  width: 30%; /* Adjust width as needed for compact list */
+  overflow-y: auto;
+  transition: width 0.5s ease-in-out;
+  padding: 1.5rem; /* Adjust padding */
+}
+
+/* Blog list container */
+.blog-list {
+  width: 100%; /* Full width when no detail is open */
+  overflow-y: auto;
+  padding: 1.5rem; /* Adjust padding */
+  box-sizing: border-box;
+  transition: width 0.5s ease-in-out;
+  border-right: 1px solid var(--border-light); /* Subtle separator */
+  background-color: var(--panel-bg); /* White background for list panel */
+  box-shadow: 2px 0 15px var(--shadow-subtle); /* Subtle shadow on the right edge */
+  z-index: 1; /* Ensure shadow is visible over primary-bg */
+
+  /* Flexbox for wrapping blog items */
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.main-title {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: var(--dark-accent-color); /* Deep sage for title */
+  font-weight: 700;
+  width: 100%; /* Make sure the title still takes full width */
+  line-height: 1.2;
+}
+
+/* Blog list - remove default list styling */
+.blog-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  /* Crucial: Allows li elements to directly participate in the flex layout of .blog-list */
+  display: contents;
+}
+
+/* Blog list item */
+.blog-item {
+  background: var(--light-accent-tint); /* Very light sage tint for items */
+  border: none;
+  padding: 0.8rem 1.2rem;
+  margin-right: 0.8rem; /* Space between items horizontally */
+  margin-bottom: 0.4rem; /* Decreased space between lines vertically */
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+  font-size: 1rem;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.2s ease,
+    box-shadow 0.2s ease, color 0.3s ease;
+  color: var(--text-dark); /* Dark charcoal for item text */
+  font-weight: 600;
+  outline: none;
+  white-space: nowrap;
+}
+
+.blog-item:hover {
+  background-color: var(--accent-color); /* Muted sage on hover */
+  color: var(--panel-bg); /* White text on hover */
+  transform: translateY(-3px);
+  box-shadow: 0px 6px 15px var(--shadow-medium);
+}
+
+.blog-item.active {
+  background-color: var(--dark-accent-color); /* Deep sage for active */
+  color: var(--panel-bg); /* White text */
+  font-weight: 700;
+  box-shadow: 0px 8px 20px var(--shadow-strong);
+  transform: translateY(-2px);
+}
+
+/* Blog detail panel */
+.blog-detail {
+  width: 0; /* Initially hidden */
+  padding: 0; /* No padding when closed */
+  box-sizing: border-box;
+  overflow-y: auto;
+  background-color: var(--panel-bg);
+  color: var(--text-medium);
+  transition: width 0.5s ease-in-out, padding 0.5s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.home-container.detail-open .blog-detail {
+  width: 70%; /* Takes larger portion when detail is open */
+  padding: 3rem 4rem;
+  box-shadow: -2px 0 15px var(--shadow-subtle); /* Subtle shadow on the left edge */
+}
+
+/* Close/collapse button */
+.collapse-btn {
+  position: absolute;
+  top: 1.8rem;
+  left: 2rem;
+  background: var(--light-accent-tint); /* Light tint for the button */
+  border: none;
+  font-size: 2.2rem;
+  color: var(--dark-accent-color); /* Deep sage for button icon */
+  cursor: pointer;
+  transition: color 0.3s ease, background-color 0.3s ease,
+    border-radius 0.3s ease, opacity 0.4s ease, visibility 0.4s ease;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  box-shadow: 0px 3px 8px var(--shadow-subtle);
+}
+
+.collapse-btn:hover {
+  color: var(--panel-bg); /* White text on hover */
+  background-color: var(--accent-color); /* Muted sage background on hover */
+  box-shadow: 0px 5px 12px var(--shadow-medium);
+}
+
+/* Blog Detail Content */
+.blog-detail h2 {
+  font-family: var(--font-heading);
+  margin-top: 0;
+  margin-bottom: 1.8rem;
+  font-size: 2.5rem;
+  color: var(--dark-accent-color); /* Deep sage for blog title */
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.blog-content {
+  flex-grow: 1;
+  overflow-y: auto;
+  font-size: 1.15rem;
+  line-height: 1.6; /* Slightly decreased line height for tighter paragraphs */
+  padding-right: 15px;
+  text-align: left;
+}
+
+/* Loading and Error States */
+.loading,
+.error,
+.loading-detail,
+.error-detail {
+  padding: 1rem;
+  text-align: center;
+  font-size: 1.1rem;
+  font-style: italic;
+  color: var(--text-light); /* Lighter gray for loading/error text */
+}
+
+.error,
+.error-detail {
+  color: #d32f2f; /* Standard red for errors */
+  font-weight: 600;
+}
+
+/* Placeholder when no blog selected */
+.detail-placeholder {
+  font-family: var(--font-heading);
+  font-style: normal;
+  color: var(--text-light); /* Lighter gray for placeholder */
+  font-size: 1.5rem;
+  max-width: 80%;
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+/* Custom scrollbar for better aesthetics (Webkit browsers) */
+.blog-content::-webkit-scrollbar,
+.blog-list::-webkit-scrollbar {
+  width: 10px;
+}
+
+.blog-content::-webkit-scrollbar-track,
+.blog-list::-webkit-scrollbar-track {
+  background: var(--primary-bg);
+  border-radius: 10px;
+}
+
+.blog-content::-webkit-scrollbar-thumb,
+.blog-list::-webkit-scrollbar-thumb {
+  background-color: var(--accent-color); /* Accent color for scrollbar thumb */
+  border-radius: 10px;
+  border: 3px solid var(--primary-bg);
+}
+
+.blog-content::-webkit-scrollbar-thumb:hover,
+.blog-list::-webkit-scrollbar-thumb:hover {
+  background-color: var(--dark-accent-color); /* Darker accent on hover */
+}
