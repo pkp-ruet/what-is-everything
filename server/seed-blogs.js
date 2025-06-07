@@ -1,10 +1,11 @@
 const fs = require("fs").promises;
 const path = require("path");
 const { MongoClient } = require("mongodb");
+require("dotenv").config();
 
 // MongoDB configuration
-const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost:27017";
-const DATABASE_NAME = process.env.DATABASE_NAME || "what-is-everything";
+const MONGODB_URI = process.env.MONGODB_URI;
+const DATABASE_NAME = process.env.DATABASE_NAME;
 const COLLECTION_NAME = "blogs";
 
 // Folder containing text files

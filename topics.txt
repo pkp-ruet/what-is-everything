@@ -1,6 +1,104 @@
-Capitalism
-Socialism
-Cryptocurrency
-Blockchain
+Internet
+Wi-Fi
+Bluetooth
+5G
 Artificial Intelligence
-Quantum Physics
+Machine Learning
+Neural Networks
+Blockchain
+Cryptocurrency
+Bitcoin
+Ethereum
+Smart Contracts
+Cloud Computing
+Servers
+Data Centers
+IP Address
+DNS
+HTTP and HTTPS
+VPN
+Firewall
+Cybersecurity
+Computer Virus
+Phishing
+Computer Networks
+Ethernet
+Router
+Modem
+GPU
+CPU
+Operating Systems
+Linux
+Windows
+macOS
+Open Source
+Git
+GitHub
+Programming Languages
+Python
+JavaScript
+HTML and CSS
+Web Browsers
+Search Engines
+Databases
+SQL
+NoSQL
+APIs
+SaaS
+Mobile Apps
+Smartphones
+Augmented Reality
+Virtual Reality
+Internet of Things (IoT)
+Edge Computing
+Quantum Computing
+Deep Learning
+Data Science
+Big Data
+Facial Recognition
+Voice Assistants
+Digital Twins
+Metaverse
+Digital Identity
+Zero Trust Security
+Multi-Factor Authentication
+Cloud Storage
+Containers
+Docker
+Kubernetes
+DevOps
+CI/CD
+Web 3.0
+NFTs
+Tokenization
+Drones
+3D Printing
+Electric Vehicles
+Self-driving Cars
+Smart Homes
+Wearables
+Biometrics
+Remote Work Tech
+Video Conferencing
+Streaming Services
+Social Media Algorithms
+Ad Tech
+Digital Privacy
+Encryption
+Captcha
+Dark Web
+Tor Network
+Captcha
+Web Cookies
+Digital Footprint
+Green Computing
+E-waste
+Tech Ethics
+Digital Minimalism
+Tech Addiction
+Net Neutrality
+Moore’s Law
+Semiconductors
+Machine Vision
+Computer Architecture
+Natural Language Processing

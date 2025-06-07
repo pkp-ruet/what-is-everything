@@ -1,21 +1,27 @@
-/* CSS Variables for a more maintainable theme */
+/* CSS Variables for a more maintainable, minimalist theme */
 :root {
-  /* Soothing Palette based on Sage Green */
-  --primary-bg: #fdfdfc; /* Very light, almost white, subtle cream background */
-  --panel-bg: #ffffff; /* Pure white for panels, slightly brighter than primary-bg */
+  /* Classic Minimalist Palette */
+  --primary-bg: #ffffff; /* Pure white background */
+  --panel-bg: #ffffff; /* Pure white for panels */
 
-  --accent-color: #a8c2b3; /* Muted Sage Green - for interactive elements, hover */
-  --dark-accent-color: #6d9384; /* Deep Sage Green - for headings, active states */
-  --light-accent-tint: #e9f0ec; /* Very light tint of sage - for list item backgrounds */
+  --accent-light: #f0f0f0; /* Very light grey for subtle highlights/hover backgrounds */
+  --accent-medium: #e0e0e0; /* Slightly darker grey for subtle borders/selected backgrounds */
+  --accent-dark: #c0c0c0; /* Darker grey for active states or strong hover borders */
 
-  --text-dark: #3a3a3a; /* Dark Charcoal Gray - for main body text */
-  --text-medium: #555555; /* Medium Gray - for general text */
-  --text-light: #909090; /* Lighter Gray - for placeholder/secondary info */
+  --text-dark: #333333; /* Dark charcoal for main headings and body text */
+  --text-medium: #666666; /* Medium grey for general text and less prominent elements */
+  --text-light: #999999; /* Light grey for secondary info, placeholders */
 
-  --border-light: #e0e0e0; /* Light Gray - for subtle borders */
-  --shadow-subtle: rgba(0, 0, 0, 0.04); /* Very subtle shadow for depth */
-  --shadow-medium: rgba(0, 0, 0, 0.08); /* Medium shadow for hover/active */
-  --shadow-strong: rgba(0, 0, 0, 0.12); /* Stronger shadow for active */
+  --border-light: #eeeeee; /* Very light grey for subtle borders */
+  --border-medium: #dddddd; /* Slightly darker grey for panel separators */
+
+  /* Minimal shadows - use sparingly or omit for true flat design */
+  --shadow-subtle: rgba(
+    0,
+    0,
+    0,
+    0.02
+  ); /* Barely there, for very subtle depth */
 
   --font-heading: "Poppins", sans-serif;
   --font-body: "Open Sans", sans-serif;
@@ -36,31 +42,31 @@ body {
   width: 100vw;
   overflow: hidden;
   font-family: var(--font-body);
-  background: var(--primary-bg);
+  background: var(--primary-bg); /* Pure white background */
   color: var(--text-medium);
 }
 
 /* When a blog is selected, show detail with a larger portion */
 .home-container.detail-open .blog-list {
-  width: 30%; /* Adjust width as needed for compact list */
+  width: 30%;
   overflow-y: auto;
-  transition: width 0.5s ease-in-out;
-  padding: 1.5rem; /* Adjust padding */
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 2rem; /* More generous padding */
 }
 
-/* Blog list container */
+/* Full width blog list when no blog selected */
 .blog-list {
-  width: 100%; /* Full width when no detail is open */
+  width: 100%;
   overflow-y: auto;
-  padding: 1.5rem; /* Adjust padding */
+  padding: 2rem; /* More generous padding */
   box-sizing: border-box;
-  transition: width 0.5s ease-in-out;
-  border-right: 1px solid var(--border-light); /* Subtle separator */
-  background-color: var(--panel-bg); /* White background for list panel */
-  box-shadow: 2px 0 15px var(--shadow-subtle); /* Subtle shadow on the right edge */
-  z-index: 1; /* Ensure shadow is visible over primary-bg */
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  /* Use subtle border instead of shadow for clean separation */
+  border-right: 1px solid var(--border-medium);
+  background-color: var(--panel-bg); /* Pure white panel background */
+  /* box-shadow: none; /* No shadow for minimalist look */
+  z-index: 1;
 
-  /* Flexbox for wrapping blog items */
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -69,13 +75,14 @@ body {
 
 .main-title {
   font-family: var(--font-heading);
-  font-size: 2.5rem;
-  margin-bottom: 1.5rem;
+  font-size: 3rem; /* Prominent title */
+  margin-bottom: 2rem; /* Ample space below title */
   text-align: center;
-  color: var(--dark-accent-color); /* Deep sage for title */
+  color: var(--text-dark); /* Dark text for clarity */
   font-weight: 700;
-  width: 100%; /* Make sure the title still takes full width */
+  width: 100%;
   line-height: 1.2;
+  text-shadow: none; /* No text shadow for flat look */
 }
 
 /* Blog list - remove default list styling */
@@ -83,115 +90,156 @@ body {
   list-style: none;
   padding: 0;
   margin: 0;
-  /* Crucial: Allows li elements to directly participate in the flex layout of .blog-list */
   display: contents;
 }
 
-/* Blog list item */
+/* Blog list item - Clean and subtle */
 .blog-item {
-  background: var(--light-accent-tint); /* Very light sage tint for items */
-  border: none;
+  background: none; /* Transparent background */
+  border: 1px solid transparent; /* Invisible border for consistency */
   padding: 0.8rem 1.2rem;
-  margin-right: 0.8rem; /* Space between items horizontally */
-  margin-bottom: 0.4rem; /* Decreased space between lines vertically */
+  margin-right: 0.8rem;
+  margin-bottom: 0.6rem; /* Increased vertical margin */
   display: inline-flex;
   justify-content: center;
   align-items: center;
   text-align: center;
   cursor: pointer;
   font-size: 1rem;
-  border-radius: 8px;
-  transition: background-color 0.3s ease, transform 0.2s ease,
-    box-shadow 0.2s ease, color 0.3s ease;
-  color: var(--text-dark); /* Dark charcoal for item text */
+  border-radius: 4px; /* Slightly less rounded for sharpness */
+  transition: background-color 0.2s ease, border-color 0.2s ease,
+    color 0.2s ease;
+  color: var(--text-medium); /* Medium grey for subtle default */
   font-weight: 600;
   outline: none;
   white-space: nowrap;
+  box-shadow: none; /* No initial shadow */
 }
 
 .blog-item:hover {
-  background-color: var(--accent-color); /* Muted sage on hover */
-  color: var(--panel-bg); /* White text on hover */
-  transform: translateY(-3px);
-  box-shadow: 0px 6px 15px var(--shadow-medium);
+  background-color: var(
+    --accent-light
+  ); /* Very light grey highlight on hover */
+  color: var(--text-dark); /* Darken text on hover */
+  transform: none; /* No lift */
+  box-shadow: none; /* No shadow on hover */
+  border-color: var(--accent-medium); /* Subtle border on hover */
 }
 
 .blog-item.active {
-  background-color: var(--dark-accent-color); /* Deep sage for active */
-  color: var(--panel-bg); /* White text */
+  background-color: var(
+    --accent-medium
+  ); /* Medium grey background when active */
+  color: var(--text-dark); /* Dark text for active */
   font-weight: 700;
-  box-shadow: 0px 8px 20px var(--shadow-strong);
-  transform: translateY(-2px);
+  box-shadow: none; /* No shadow when active */
+  transform: none; /* No lift */
+  border-color: var(--accent-dark); /* Clearer border when active */
 }
 
 /* Blog detail panel */
 .blog-detail {
-  width: 0; /* Initially hidden */
-  padding: 0; /* No padding when closed */
+  width: 0;
+  padding: 0;
   box-sizing: border-box;
   overflow-y: auto;
-  background-color: var(--panel-bg);
+  background-color: var(--panel-bg); /* Pure white panel background */
   color: var(--text-medium);
-  transition: width 0.5s ease-in-out, padding 0.5s ease-in-out;
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+    padding 0.6s cubic-bezier(0.4, 0, 0.2, 1);
   display: flex;
   flex-direction: column;
   position: relative;
   justify-content: center;
   align-items: center;
   text-align: center;
+  background: none; /* No gradient for minimalist look */
+  /* Use subtle border instead of shadow for clean separation */
+  border-left: 1px solid var(--border-medium);
+  box-shadow: none; /* No shadow for flat design */
 }
 
 .home-container.detail-open .blog-detail {
-  width: 70%; /* Takes larger portion when detail is open */
-  padding: 3rem 4rem;
-  box-shadow: -2px 0 15px var(--shadow-subtle); /* Subtle shadow on the left edge */
+  width: 70%;
+  padding: 4rem 5rem; /* More generous padding for content */
+  padding-top: 6rem; /* Extra top padding for the collapse button clearance */
 }
 
-/* Close/collapse button */
+/* Close/collapse button - Modern and subtle */
 .collapse-btn {
   position: absolute;
-  top: 1.8rem;
-  left: 2rem;
-  background: var(--light-accent-tint); /* Light tint for the button */
-  border: none;
-  font-size: 2.2rem;
-  color: var(--dark-accent-color); /* Deep sage for button icon */
+  top: 2rem; /* Position from the top */
+  left: 2.5rem; /* Position from the left */
+  background: none; /* Transparent background by default */
+  border: 1px solid var(--border-light); /* Subtle border */
+  font-size: 2.5rem; /* Good size for visibility */
+  line-height: 1;
+  color: var(--text-medium); /* Default text color */
   cursor: pointer;
-  transition: color 0.3s ease, background-color 0.3s ease,
-    border-radius 0.3s ease, opacity 0.4s ease, visibility 0.4s ease;
-  width: 48px;
-  height: 48px;
+  transition: all 0.2s ease-out; /* Simpler, faster transition */
+  width: 50px; /* Standard size */
+  height: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 50%;
-  box-shadow: 0px 3px 8px var(--shadow-subtle);
+  border-radius: 50%; /* Still circular */
+  box-shadow: none; /* No shadow */
+  z-index: 10;
 }
 
 .collapse-btn:hover {
-  color: var(--panel-bg); /* White text on hover */
-  background-color: var(--accent-color); /* Muted sage background on hover */
-  box-shadow: 0px 5px 12px var(--shadow-medium);
+  color: var(--text-dark); /* Darken icon on hover */
+  background-color: var(--accent-light); /* Light background highlight */
+  border-color: var(--accent-medium); /* Slightly stronger border on hover */
+  transform: scale(1.05); /* Very subtle scale */
+  box-shadow: none;
 }
 
-/* Blog Detail Content */
+.collapse-btn:active {
+  transform: scale(0.98); /* Subtle shrink on click */
+  box-shadow: none;
+}
+
+/* Blog Content Animation Wrapper - Keep subtle content entry */
+.blog-content-animation-wrapper {
+  opacity: 0;
+  transform: translateY(10px); /* Smaller vertical shift */
+  transition: opacity 0.5s ease-out 0.1s, transform 0.5s ease-out 0.1s; /* Faster, simpler transition */
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.blog-content-animation-wrapper.loaded {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Blog Detail Content - Focus on readability */
 .blog-detail h2 {
   font-family: var(--font-heading);
   margin-top: 0;
-  margin-bottom: 1.8rem;
-  font-size: 2.5rem;
-  color: var(--dark-accent-color); /* Deep sage for blog title */
+  margin-bottom: 2rem; /* More space below heading */
+  font-size: 2.8rem; /* Consistent heading size */
+  color: var(--text-dark); /* Dark text for clarity */
   font-weight: 700;
   line-height: 1.3;
+  width: 100%;
+  text-shadow: none; /* No text shadow */
 }
 
 .blog-content {
   flex-grow: 1;
   overflow-y: auto;
-  font-size: 1.15rem;
-  line-height: 1.6; /* Slightly decreased line height for tighter paragraphs */
-  padding-right: 15px;
+  font-size: 1.15rem; /* Balanced body text size */
+  line-height: 1.7; /* Ample line height for readability */
+  padding-right: 20px; /* More padding for scrollbar clearance */
   text-align: left;
+  width: 100%;
 }
 
 /* Loading and Error States */
@@ -203,12 +251,12 @@ body {
   text-align: center;
   font-size: 1.1rem;
   font-style: italic;
-  color: var(--text-light); /* Lighter gray for loading/error text */
+  color: var(--text-light);
 }
 
 .error,
 .error-detail {
-  color: #d32f2f; /* Standard red for errors */
+  color: #d32f2f; /* Retain red for errors for clear communication */
   font-weight: 600;
 }
 
@@ -216,8 +264,8 @@ body {
 .detail-placeholder {
   font-family: var(--font-heading);
   font-style: normal;
-  color: var(--text-light); /* Lighter gray for placeholder */
-  font-size: 1.5rem;
+  color: var(--text-light);
+  font-size: 1.8rem; /* Slightly larger for prominence */
   max-width: 80%;
   line-height: 1.6;
   font-weight: 500;
@@ -226,7 +274,7 @@ body {
 /* Custom scrollbar for better aesthetics (Webkit browsers) */
 .blog-content::-webkit-scrollbar,
 .blog-list::-webkit-scrollbar {
-  width: 10px;
+  width: 8px; /* Thinner scrollbar */
 }
 
 .blog-content::-webkit-scrollbar-track,
@@ -237,12 +285,12 @@ body {
 
 .blog-content::-webkit-scrollbar-thumb,
 .blog-list::-webkit-scrollbar-thumb {
-  background-color: var(--accent-color); /* Accent color for scrollbar thumb */
+  background-color: var(--accent-medium); /* Subtle grey thumb */
   border-radius: 10px;
-  border: 3px solid var(--primary-bg);
+  border: 2px solid var(--primary-bg); /* Thinner border */
 }
 
 .blog-content::-webkit-scrollbar-thumb:hover,
 .blog-list::-webkit-scrollbar-thumb:hover {
-  background-color: var(--dark-accent-color); /* Darker accent on hover */
+  background-color: var(--accent-dark); /* Darker on hover */
 }
