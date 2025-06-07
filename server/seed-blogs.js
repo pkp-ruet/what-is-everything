@@ -18,6 +18,10 @@ const blogSchema = {
   createdAt: Date,
 };
 
+/**
+ * Connects to the MongoDB database.
+ * @returns {Promise<MongoClient>} The connected MongoClient instance.
+ */
 async function connectToMongoDB() {
   const client = new MongoClient(MONGODB_URI);
   await client.connect();
@@ -25,6 +29,12 @@ async function connectToMongoDB() {
   return client;
 }
 
+/**
+ * Reads text files from a specified folder and parses them into blog objects.
+ * The filename (without extension) is used as the blog title.
+ * @param {string} folderPath - The path to the folder containing text files.
+ * @returns {Promise<Array<Object>>} An array of blog objects.
+ */
 async function readTextFiles(folderPath) {
   try {
     // Check if folder exists
@@ -44,22 +54,12 @@ async function readTextFiles(folderPath) {
       const filePath = path.join(folderPath, file);
       const content = await fs.readFile(filePath, "utf8");
 
-      // Remove file extension from title
-      // Extract category and title from filename
-      const baseName = path.parse(file).name;
-      const separatorIndex = baseName.indexOf("-");
-      if (separatorIndex === -1) {
-        console.warn(`⚠️  Skipping file "${file}" – no category prefix found`);
-        continue;
-      }
-
-      const category = baseName.slice(0, separatorIndex).trim();
-      const title = baseName.slice(separatorIndex + 1).trim();
+      // Extract title from filename (removing extension)
+      const title = path.parse(file).name.trim();
 
       blogs.push({
         title,
         content: content.trim(),
-        category,
         createdAt: new Date(),
       });
 
@@ -78,6 +78,13 @@ async function readTextFiles(folderPath) {
   }
 }
 
+/**
+ * Checks for existing blogs with the same titles in the database
+ * and filters out duplicates from the provided list.
+ * @param {Array<Object>} blogs - An array of blog objects to check.
+ * @param {import('mongodb').Collection} collection - The MongoDB collection to query.
+ * @returns {Promise<Array<Object>>} A new array containing only non-duplicate blogs.
+ */
 async function checkForDuplicates(blogs, collection) {
   const titles = blogs.map((blog) => blog.title);
   const existingBlogs = await collection
@@ -105,6 +112,12 @@ async function checkForDuplicates(blogs, collection) {
   return blogs;
 }
 
+/**
+ * Saves a list of blog objects to MongoDB, handling duplicates.
+ * @param {Array<Object>} blogs - An array of blog objects to save.
+ * @param {MongoClient} client - The MongoDB client instance.
+ * @returns {Promise<Object>} An object containing the inserted count and the new blogs.
+ */
 async function saveBlogsToMongoDB(blogs, client) {
   try {
     const db = client.db(DATABASE_NAME);
@@ -144,6 +157,10 @@ async function saveBlogsToMongoDB(blogs, client) {
   }
 }
 
+/**
+ * Retrieves and logs statistics about the blogs collection.
+ * @param {MongoClient} client - The MongoDB client instance.
+ */
 async function getCollectionStats(client) {
   try {
     const db = client.db(DATABASE_NAME);
@@ -173,6 +190,9 @@ async function getCollectionStats(client) {
   }
 }
 
+/**
+ * Main function to orchestrate the blog import process.
+ */
 async function main() {
   let client;
 

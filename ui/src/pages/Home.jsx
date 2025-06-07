@@ -118,7 +118,6 @@ function Home() {
               <p className="error-detail">{errorDetail}</p>
             ) : (
               <>
-                <h2>{selectedBlog.title}</h2>
                 <div
                   className="blog-content"
                   // !! IMPORTANT: Use dangerouslySetInnerHTML with caution !!
