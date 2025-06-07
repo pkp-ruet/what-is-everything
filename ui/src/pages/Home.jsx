@@ -101,12 +101,12 @@ function Home() {
           onClick={() => setSelectedBlog(null)}
           aria-label="Close blog detail"
           style={{
-            visibility: selectedBlog ? "visible" : "hidden", // Hide if no blog is selected
-            opacity: selectedBlog ? 1 : 0, // Fade in/out
-            pointerEvents: selectedBlog ? "auto" : "none", // Disable interaction when hidden
+            visibility: selectedBlog ? "visible" : "hidden",
+            opacity: selectedBlog ? 1 : 0,
+            pointerEvents: selectedBlog ? "auto" : "none",
           }}
         >
-          ←
+          «
         </button>
 
         {/* Conditional rendering for detail content */}

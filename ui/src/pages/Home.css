@@ -1,19 +1,20 @@
-/* CSS Variables for a more maintainable, minimalist theme */
+/* CSS Variables for a more maintainable, minimalist theme with warm, eye-catching colors */
 :root {
-  /* Classic Minimalist Palette */
-  --primary-bg: #ffffff; /* Pure white background */
-  --panel-bg: #ffffff; /* Pure white for panels */
+  /* Warm, Eye-Catching Minimalist Palette: Soft Oranges, Muted Yellows, Earthy Browns */
+  --primary-bg: #fdf9f6; /* Very light, warm off-white background */
+  --panel-bg: #ffffff; /* Pure white for panels, keeping it clean */
 
-  --accent-light: #f0f0f0; /* Very light grey for subtle highlights/hover backgrounds */
-  --accent-medium: #e0e0e0; /* Slightly darker grey for subtle borders/selected backgrounds */
-  --accent-dark: #c0c0c0; /* Darker grey for active states or strong hover borders */
+  --accent-light: #fff0e4; /* Very light, desaturated orange for subtle highlights/hover backgrounds */
+  --accent-medium: #ffe0c2; /* Slightly darker desaturated orange for subtle borders/selected backgrounds */
+  --accent-dark: #ffb37c; /* Muted, warm orange for active states or stronger hover borders */
+  --accent-warm-text: #e58e4e; /* A slightly more pronounced warm orange for default text */
 
-  --text-dark: #333333; /* Dark charcoal for main headings and body text */
-  --text-medium: #666666; /* Medium grey for general text and less prominent elements */
-  --text-light: #999999; /* Light grey for secondary info, placeholders */
+  --text-dark: #6f4e37; /* Dark, rich brown for main headings and body text */
+  --text-medium: #9c7a5d; /* Medium earthy brown for general text and less prominent elements */
+  --text-light: #c2a58f; /* Light sandy brown for secondary info, placeholders */
 
-  --border-light: #eeeeee; /* Very light grey for subtle borders */
-  --border-medium: #dddddd; /* Slightly darker grey for panel separators */
+  --border-light: #f5efea; /* Very light warm grey for subtle borders */
+  --border-medium: #e9dcd2; /* Slightly darker warm grey for panel separators */
 
   /* Minimal shadows - use sparingly or omit for true flat design */
   --shadow-subtle: rgba(
@@ -42,7 +43,7 @@ body {
   width: 100vw;
   overflow: hidden;
   font-family: var(--font-body);
-  background: var(--primary-bg); /* Pure white background */
+  background: var(--primary-bg); /* Use the warm off-white background */
   color: var(--text-medium);
 }
 
@@ -64,7 +65,6 @@ body {
   /* Use subtle border instead of shadow for clean separation */
   border-right: 1px solid var(--border-medium);
   background-color: var(--panel-bg); /* Pure white panel background */
-  /* box-shadow: none; /* No shadow for minimalist look */
   z-index: 1;
 
   display: flex;
@@ -109,7 +109,7 @@ body {
   border-radius: 4px; /* Slightly less rounded for sharpness */
   transition: background-color 0.2s ease, border-color 0.2s ease,
     color 0.2s ease;
-  color: var(--text-medium); /* Medium grey for subtle default */
+  color: var(--accent-warm-text); /* Titles now default to a warm orange */
   font-weight: 600;
   outline: none;
   white-space: nowrap;
@@ -119,8 +119,8 @@ body {
 .blog-item:hover {
   background-color: var(
     --accent-light
-  ); /* Very light grey highlight on hover */
-  color: var(--text-dark); /* Darken text on hover */
+  ); /* Very light desaturated orange highlight on hover */
+  color: var(--text-dark); /* Darken text on hover for readability */
   transform: none; /* No lift */
   box-shadow: none; /* No shadow on hover */
   border-color: var(--accent-medium); /* Subtle border on hover */
@@ -129,8 +129,10 @@ body {
 .blog-item.active {
   background-color: var(
     --accent-medium
-  ); /* Medium grey background when active */
-  color: var(--text-dark); /* Dark text for active */
+  ); /* Medium desaturated orange background when active */
+  color: var(
+    --text-dark
+  ); /* Keep text dark for readability on medium background */
   font-weight: 700;
   box-shadow: none; /* No shadow when active */
   transform: none; /* No lift */
@@ -285,7 +287,7 @@ body {
 
 .blog-content::-webkit-scrollbar-thumb,
 .blog-list::-webkit-scrollbar-thumb {
-  background-color: var(--accent-medium); /* Subtle grey thumb */
+  background-color: var(--accent-medium); /* Subtle warm accent thumb */
   border-radius: 10px;
   border: 2px solid var(--primary-bg); /* Thinner border */
 }
