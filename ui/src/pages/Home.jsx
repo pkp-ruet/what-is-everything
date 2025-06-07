@@ -8,10 +8,10 @@ function Home() {
   const [loadingDetail, setLoadingDetail] = useState(false);
   const [errorList, setErrorList] = useState(null);
   const [errorDetail, setErrorDetail] = useState(null);
-
+  const API = import.meta.env.VITE_API_BASE_URL;
   useEffect(() => {
     // Fetch blog list when the component mounts
-    fetch("http://localhost:3000/api/blogs")
+    fetch(`${API}/api/blogs`)
       .then((res) => {
         if (!res.ok) {
           // Handle HTTP errors (e.g., 404, 500)
@@ -43,7 +43,7 @@ function Home() {
     setErrorDetail(null); // Clear any previous detail errors
 
     // Fetch full blog content
-    fetch(`http://localhost:3000/api/blogs/${blog._id}`)
+    fetch(`${API}/api/blogs/${blog._id}`)
       .then((res) => {
         if (!res.ok) {
           throw new Error(`HTTP error! status: ${res.status}`);
